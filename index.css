@@ -31,8 +31,8 @@
 .res-card{
     padding: 5px;
     margin: 5px;
-    width:200px;
-    /* height:350px; */
+    width:250px;
+    height:430px;
   
    
 
@@ -53,4 +53,9 @@
     /* padding:5px; */
     width: 100%;
     height:43%
+}
+
+.filter-btn{
+    margin: 10px;
+    cursor: pointer;
 }
