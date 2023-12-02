@@ -61,4 +61,5 @@ import {Component} from 'path';
 
 -useState()- to generate superpowerful state variables in react.
  
--useEffect()
+-useEffect()- it takes two argument a callback function and array 
+   when this call back function is called answer is, it called after when your component is render. 
