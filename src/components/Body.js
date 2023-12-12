@@ -2,6 +2,7 @@ import RestaurantCard from "./RestaurantCard"
 import { useState ,useEffect} from "react";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
+import {Link} from "react-router-dom";
 
 
 
@@ -100,9 +101,19 @@ const Body = () => {
             // here key is important other wise it shows warning so that react uniquely identified each member
             // so that performance will nbe improved
             // <RestaurantCard key={index} resData={restaurant} />
-            <RestaurantCard key={restaurant.info.id} resData={restaurant} />            
+            //if we use Link than 'key' should be in parent Jsx menas it in Link tagg
+
+            // behind the scene link uses anchor tag
+            <Link key={restaurant.info.id} 
+            to={"/restaurants/"+ restaurant.info.id}>
+              <RestaurantCard  resData={restaurant} />
+            </Link>  
          ))}
         </div>
+        console.log("restaurant id")
+        console.log(restaurant.info.id) 
+        
+
       </div>
     );
   };

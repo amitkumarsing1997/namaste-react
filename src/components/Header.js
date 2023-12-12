@@ -1,16 +1,36 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState } from "react"
+import { useState ,useEffect} from "react"
+
+import { Link } from "react-router-dom"
+
+// never create useState outside of component (means here) always creates in top of the component not outside of the component
+
+// never create your useState inside if else or for loop or inside any normal function
 const Header=()=>{
 
-    let btnName = "Login"
-    // but below we use const and we can not reassign value to const variable than why it does not show any error
-    // answer is when we click on login btn than onclick event change to "logout" and chuki ye useState hook 
-    // ka variable hai 'btnNameReact' and to header component renender hoga due to useState hook ke karan and rerender ki wajah
-    // se btnNameReact variable jo ki const hai ek naye variable ki tarah treat hoga na ki purane wale ki tarah se
-    // ek tarah se hum bol sakte hai ki ye 'dusra' const variable hai
-
-    
     const [btnNameReact,setBtnNameReact] = useState("Login")
+    
+    // when you use useEffect without a 'deependecy array' it will render everytime when our component render
+
+    useEffect(() => {
+        console.log("useEffect Called")
+
+    })     
+
+    // when dependency array is empty [] than useEffect will called only initial render and just once 
+
+    useEffect(() => {
+        console.log("useEffect Called with empty dependency array")
+
+    },[])   
+   // if dependency array is not empty [btnNameReact] than useEffect will called everytime when btnNameReact is updated
+    useEffect(() => {
+        console.log("useEffect Called with non empty array")
+
+    },[btnNameReact])   
+
+
+
     return(
         <div className="header">
             <div className="Logo-container">
@@ -21,9 +41,23 @@ const Header=()=>{
             </div>
             <div className="nav-items">
                 <ul>
-                    <li>Home</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+
+                    {/* <li>
+                        <a href="/about">About Us</a>
+                    </li> */}
+
+
+                    <li>
+                        <Link to="/about">About Us</Link>
+                    </li>
+                    <li>
+                        <Link to="/contact">
+                            Contact Us
+                        </Link>
+                    </li>
                     <li>Cart</li>
                  {/* even though our onclick is called but our ui not reender or our header component not rerender
                  so it not print on ui as 'Logout' 
