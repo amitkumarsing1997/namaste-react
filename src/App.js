@@ -45,8 +45,6 @@ const appRouter = createBrowserRouter([
                 // due to the : this path is dynamic // every rest have different resId
                 path:"/restaurants/:resId",
                 element: <RestaurantMenu />
-
-        
             }
             
 

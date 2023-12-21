@@ -2,6 +2,7 @@ import { LOGO_URL } from "../utils/constants"
 import { useState ,useEffect} from "react"
 
 import { Link } from "react-router-dom"
+import useOnlineStatus from "../utils/useOnlineStatus"
 
 // never create useState outside of component (means here) always creates in top of the component not outside of the component
 
@@ -10,27 +11,9 @@ const Header=()=>{
 
     const [btnNameReact,setBtnNameReact] = useState("Login")
     
-    // when you use useEffect without a 'deependecy array' it will render everytime when our component render
+   const onlineStatus = useOnlineStatus()
 
-    useEffect(() => {
-        console.log("useEffect Called")
-
-    })     
-
-    // when dependency array is empty [] than useEffect will called only initial render and just once 
-
-    useEffect(() => {
-        console.log("useEffect Called with empty dependency array")
-
-    },[])   
-   // if dependency array is not empty [btnNameReact] than useEffect will called everytime when btnNameReact is updated
-    useEffect(() => {
-        console.log("useEffect Called with non empty array")
-
-    },[btnNameReact])   
-
-
-
+   
     return(
         <div className="header">
             <div className="Logo-container">
@@ -41,6 +24,9 @@ const Header=()=>{
             </div>
             <div className="nav-items">
                 <ul>
+                    <li>
+                        Online Status: {onlineStatus ? "✅":"🔴"}
+                    </li>
                     <li>
                         <Link to="/">Home</Link>
                     </li>
