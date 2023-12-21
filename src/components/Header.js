@@ -44,6 +44,13 @@ const Header=()=>{
                             Contact Us
                         </Link>
                     </li>
+
+                    <li>
+                        <Link to="/grocery">
+                            Grocery
+                        </Link>
+                    </li>
+
                     <li>Cart</li>
                  {/* even though our onclick is called but our ui not reender or our header component not rerender
                  so it not print on ui as 'Logout' 
