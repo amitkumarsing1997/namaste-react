@@ -14,19 +14,19 @@ const RestaurantCard=(props)=>{
 
     }=resData?.info
     return (
-        <div className="res-card" style={{backgroundColor:"#f0f0f0"}}>
+        <div className="m-4 p-4 w-[250px] h-[370px] rounded-lg bg-gray-50 hover:bg-purple-500">
             {/* <img 
              className="res-logo"
             alt="res-logo" src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_264,h_288,c_fill/x4uyxvihmg8qa3pddkgf"/> */}
 
             <img 
-              className="res-logo"
+              className="rounded-lg"
               src={ 
                 // this is basically cloudinary image cdn links
                 CDN_URL+cloudinaryImageId
               }
               />
-            <h3>{name}</h3>
+            <h3 className="font-bold py-3 text-lg">{name}</h3>
             <h4>{cuisines.join(" , ")}</h4>
             <h4>{avgRating} stars</h4>
             <h4>{costForTwo}</h4>
