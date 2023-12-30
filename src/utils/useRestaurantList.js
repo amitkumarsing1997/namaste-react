@@ -6,13 +6,15 @@ const useRestaurantList =()=>{
 
 useEffect(()=> {
     fetchData()
- } ,[]);
+ },[]);
 
 
  const fetchData = async () =>{
     const data = await fetch(RESTAUR_LIST_API)
     const json = await data.json()
-    setListOfRestaurant(json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    setListOfRestaurant(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants)
+    // console.log("in useRestaurant List Util component ")
+    // console.log(json?.data?.cards[4])
 
  }
  return listOfRestaurant

@@ -4,7 +4,7 @@ class UserClass extends React.Component {
     constructor(props){
         super(props);
       
-    console.log("Child constructor")
+    // console.log("Child constructor")
     // to render the json data we need to create state variable 
     this.state = {
         // userInfo is a state variable
@@ -27,18 +27,18 @@ class UserClass extends React.Component {
                 userInfo: json,
             }
         );
-        console.log(json)
+        // console.log(json)
     }
     componentDidUpdate(){
-        console.log("component did update is called...")
+        // console.log("component did update is called...")
 
     }
     componentWillUnmount(){
-        console.log("component will unmount is called...")
+        // console.log("component will unmount is called...")
     }
     render() {
 
-        console.log("Child Render")
+        // console.log("Child Render")
 
         //destucture
         const { name,location,avatar_url} = this.state.userInfo;

@@ -1,22 +1,26 @@
 import RestaurantCard from "./RestaurantCard"
-import { useState ,useEffect} from "react";
+import { useState ,useEffect,useContext} from "react";
 import resList from "../utils/mockData";
 import Shimmer from "./Shimmer";
 import {Link} from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import useRestaurantList from "../utils/useRestaurantList";
-
+import UserContext from "../utils/UserContext";
 
 
 const Body = () => {
   // Local State Variable - Super powerful variable
   const [listOfRestaurant ,setListOfRestaurant] = useState([]);
-  
   const[filteredRestaurant, setFilteredRestaurant] = useState([])
   const [searchText, setSearchText] = useState("");
 
   // Call the custom hook
   const restaurantList = useRestaurantList();
+  // console.log("in restaurantList")
+  // console.log(restaurantList)
+
+  //list of restaurant to see the data
+  // console.log(listOfRestaurant)
  
   // Update the state with the fetched data
   useEffect(() => {
@@ -48,7 +52,9 @@ const Body = () => {
 
   if (onlineStatus === false) return <h1>Looks like you are offline Please check your internet connection</h1>
    
-  return listOfRestaurant.length === 0 ? <Shimmer/>:(
+   const {loggedInUser,setUserName}=useContext(UserContext)
+
+  return listOfRestaurant.length=== 0 ? <Shimmer/>:(
       <div className="body">
         <div className="filter flex">
           <div className="search m-4 p-4">
@@ -90,6 +96,18 @@ const Body = () => {
           }}>
             Top Rated Restaurant
             </button>
+          </div>
+
+          <div className="search m-4 p-4" flex items-center>
+            <label>
+              UserName: 
+            </label>
+            <input className="border border-black p-2" 
+             value={loggedInUser}
+            onChange={(e)=>
+             setUserName(e.target.value)
+            }/>
+
           </div>
           
         </div>

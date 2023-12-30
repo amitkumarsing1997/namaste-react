@@ -1,8 +1,9 @@
 import { LOGO_URL } from "../utils/constants"
-import { useState ,useEffect} from "react"
+import { useState ,useEffect,useContext} from "react"
 
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
+import UserContext from "../utils/UserContext"
 
 // never create useState outside of component (means here) always creates in top of the component not outside of the component
 
@@ -12,6 +13,8 @@ const Header=()=>{
     const [btnNameReact,setBtnNameReact] = useState("Login")
     
    const onlineStatus = useOnlineStatus()
+
+   const {loggedInUser} = useContext(UserContext)
 
    
     return(
@@ -74,7 +77,10 @@ const Header=()=>{
                    <button className="login" onClick={()=>{
                         btnNameReact==="Login"? setBtnNameReact("Logout"): setBtnNameReact("Login")
                         
-                    }}>{btnNameReact}</button>
+                    }}>{btnNameReact}
+                    </button>
+
+                    <li className="px-4 font-bold">{loggedInUser}</li>
 
 
                 </ul>
