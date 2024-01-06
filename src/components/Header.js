@@ -4,6 +4,7 @@ import { useState ,useEffect,useContext} from "react"
 import { Link } from "react-router-dom"
 import useOnlineStatus from "../utils/useOnlineStatus"
 import UserContext from "../utils/UserContext"
+import { useSelector } from "react-redux"
 
 // never create useState outside of component (means here) always creates in top of the component not outside of the component
 
@@ -15,6 +16,10 @@ const Header=()=>{
    const onlineStatus = useOnlineStatus()
 
    const {loggedInUser} = useContext(UserContext)
+
+   //Subscribing to the store using a selector
+
+      const cartItems = useSelector((store)=> store.cart.items);
 
    
     return(
@@ -54,7 +59,12 @@ const Header=()=>{
                         </Link>
                     </li>
 
-                    <li className="px-4">Cart</li>
+                    <li className="px-4 font-bold text-xl">
+                         <Link to="/cart">
+                         Cart - ({cartItems.length} items)
+                         </Link>
+                        
+                    </li>
                  {/* even though our onclick is called but our ui not reender or our header component not rerender
                  so it not print on ui as 'Logout' 
                  because here we use simple javascript variable instead of 

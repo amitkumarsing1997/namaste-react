@@ -76,6 +76,16 @@ There are two types of routing in web Applications
       if we click on about.html it reload the page and send the network call to about.html and fetches the html and render on the web page
 
 
+
+#Redux Toolkit
+  -Install @reduxjs/toolkit and react-redux 
+  -Build our store
+  -Connect our store to our app
+  -Slice(cardSlice)
+  -dispatch(action)
+  -Selector
+
+
 // behind the scene link uses anchor tag
 
 
@@ -96,7 +106,13 @@ There are two types of routing in web Applications
     main page-
     https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
 
+    https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING
+
 
     restaurant and menu-
 
     https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=12.960059122809971&lng=77.57337538383284&restaurantId=792403&catalog_qa=undefined&submitAction=ENTER
+
+
+
+     https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.960059122809971&lng=77.57337538383284&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING

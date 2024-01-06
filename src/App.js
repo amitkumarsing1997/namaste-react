@@ -15,6 +15,9 @@ import RestaurantMenu from "./components/RestaurantMenu";
 // import UserContext from "./utils/UserContext";
 // import Grocery from "./components/Grocery";
 import UserContext from "./utils/UserContext";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
+import Cart from "./components/Cart";
 
 
 //Chunking
@@ -41,6 +44,7 @@ const AppLayout=()=>{
 
     return (
 
+        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
 
         <div className="app">
@@ -48,6 +52,7 @@ const AppLayout=()=>{
             <Outlet/>
         </div>
         </UserContext.Provider>
+        </Provider>
     ) 
 }
 
@@ -76,6 +81,10 @@ const appRouter = createBrowserRouter([
                 // due to the : this path is dynamic // every rest have different resId
                 path:"/restaurants/:resId",
                 element: <RestaurantMenu />
+            },
+            {
+                path:"/cart",
+                element:<Cart/>
             }
             
 
